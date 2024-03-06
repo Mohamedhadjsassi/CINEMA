@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
+import TopNavbar from './Nav'
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+import './App.css'
+import Movies from './Movies';
+import Add from './Add';
+import Fitlered from './Filtered';
+import movielist from './Movielist';
+
 
 function App() {
+  const[search , setSearch]=useState('');
+  const[rating , setRating]=useState(0);
+  const [adding,setAdding]=useState(movielist) 
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <TopNavbar setSearch={setSearch} setRating={setRating} />
+     <div className='searched' style={{display:'flex' , justifyContent:'center'}}>
+     <Fitlered  search={search}   rating={rating}  adding={adding} />
+     
+     
+     </div>
+     <hr/>
+      <div className="cards">
+        <Movies adding={adding} />
+      </div>
+     <Add   adding={adding} setAdding={setAdding} />
+
+    </>
+  )
 }
 
-export default App;
+export default App
