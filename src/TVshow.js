@@ -1,16 +1,17 @@
-import React from 'react';
+import React from 'react'
 import './App.css';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import movielist from './Movielist';
-import { Link } from 'react-router-dom';
 
-function Movies({ adding }) {
+import { Link } from 'react-router-dom';
+import Serielist from './Serielist';
+
+function TVshow() {
   return (
     <div className='cards'>
-      {adding.map((movie) => (
+      {Serielist.map((movie) => (
         <Card style={{ width: '18rem', height: '650px' }} key={movie.id}>
-          <Link   key={movie.id}  to={`/Movies/${movie.id}`}>
+          <Link to={`/TVShow/${movie.id}`}>
             <Card.Img variant="top" src={movie.Image} />
           </Link>
           <Card.Body>
@@ -24,7 +25,7 @@ function Movies({ adding }) {
         </Card>
       ))}
     </div>
-  );
+  )
 }
 
-export default Movies;
+export default TVshow

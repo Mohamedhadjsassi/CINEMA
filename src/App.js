@@ -7,9 +7,15 @@ import Movies from './Movies';
 import Add from './Add';
 import Fitlered from './Filtered';
 import movielist from './Movielist';
+import { Route, Routes } from 'react-router-dom';
+import Home from './Home';
+import Movie from './Movie';
+import TVshow from './TVshow';
+import SingleMovie from './SingleMovie';
 
 
 function App() {
+  //states 
   const[search , setSearch]=useState('');
   const[rating , setRating]=useState(0);
   const [adding,setAdding]=useState(movielist) 
@@ -23,9 +29,19 @@ function App() {
      
      </div>
      <hr/>
-      <div className="cards">
-        <Movies adding={adding} />
-      </div>
+      
+      <Routes>
+        <Route path='/' element={<Home/>}/>
+        <Route path='/Movies' element={<Movies adding={adding}/>}/>
+        <Route path='/Movies/:id' element={<SingleMovie/>}/>
+        <Route path='/TVshow' element={<TVshow/>}/>
+
+        </Routes>
+
+
+     
+     
+     
      <Add   adding={adding} setAdding={setAdding} />
 
     </>

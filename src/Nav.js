@@ -1,6 +1,7 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import { Link } from 'react-router-dom';
 
 function TopNavbar({setSearch ,setRating}) {
     const modif=(e)=>{setSearch(e.target.value)}
@@ -11,9 +12,9 @@ function TopNavbar({setSearch ,setRating}) {
         <Container id='Nav'> 
           <Navbar.Brand href="#home" >Marvel </Navbar.Brand>
           <Nav className="me-auto">
-            <Nav.Link href="#Home">Home</Nav.Link>
-            <Nav.Link href="#features">Movies</Nav.Link>
-            <Nav.Link href="#pricing">TV Shows</Nav.Link>
+            <Link to='/'>Home</Link>
+            <Link to='/Movies' style={{marginLeft:'20px'}}>Movies</Link>
+            <Link to='/TVShow'style={{marginLeft:'20px'}}>TV Shows</Link>
           </Nav>
           <div>
 
